@@ -7,7 +7,7 @@
  */
 
 import React from 'react';
-import Router from './Screens/Router';
+import Router from './src/Navigation/Router';
 const App=()=> {
   return (
    <>

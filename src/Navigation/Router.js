@@ -1,11 +1,12 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import Home from '../src/Screens/Home/Home';
-import Course from '../src/Screens/Course/Course';
-import Live from '../src/Screens/Live/Live';
-import Notice from '../src/Screens/Notice/Notice';
-import MyProfile from '../src/Screens/MyProfile/MyProfile';
+
+import Home from "../Screens/Home/Home";
+import Course from '../Screens/Course/Course';
+import Live from '../Screens/Live/Live';
+import Notice from '../Screens/Notice/Notice';
+import MyProfile from '../Screens/MyProfile/MyProfile';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons' 
 import Feather from 'react-native-vector-icons/Feather';
