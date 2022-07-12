@@ -54,6 +54,7 @@ const Router=()=>{
                 options={{
                     tabBarIcon:({color,size})=>(
                         <EvilIcons name="user" color={color} size={size}/>
+                        
                     )
                 }}
                 />
