@@ -7,11 +7,11 @@
  */
 
 import React from 'react';
-import Router from './src/Navigation/Router';
+import MainNavigator from './src/Navigation/MainRouter';
 const App=()=> {
   return (
    <>
-   <Router/>
+   <MainNavigator/>
    </>
   );
 };

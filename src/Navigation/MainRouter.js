@@ -1,32 +1,44 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import Home from '../src/Screens/Home/Home';
-import Course from '../src/Screens/Course/Course';
-import Live from '../src/Screens/Live/Live';
-import Notice from '../src/Screens/Notice/Notice';
-import MyProfile from '../src/Screens/MyProfile/MyProfile';
+import { createBottomTabNavigator, } from "@react-navigation/bottom-tabs";
+import Course from '../Screens/Course/Course';
+import Live from '../Screens/Live/Live';
+import Notice from '../Screens/Notice/Notice';
+import MyProfile from '../Screens/MyProfile/MyProfile';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons' 
 import Feather from 'react-native-vector-icons/Feather';
-import EvilIcons from 'react-native-vector-icons/EvilIcons'
+import EvilIcons from 'react-native-vector-icons/EvilIcons';
+import HomeStack from "./StacksScreen.js/HomeStacks/HomeStacks";
+import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
 
 const Tab=createBottomTabNavigator();
-const Router=()=>{
+const MainNavigator=()=>{
+    const getTabBarVisibility=(route)=>{
+        const routeName = getFocusedRouteNameFromRoute(route)?? 'Feed';
+        if(routeName==='SwitchSpace'){
+            return 'none'
+        }
+        else{
+            return 'flex'
+        }
+    }
     return(
         <NavigationContainer >
             <Tab.Navigator screenOptions={{
                 headerShown:false,
-                tabBarActiveTintColor:'black'
+                tabBarActiveTintColor:'black',
+                
             }}
             
             >
-                <Tab.Screen name="Home" component={Home} 
-                options={{
+                <Tab.Screen name="Home" component={HomeStack} 
+                options={({route})=>({
                     tabBarIcon:({color,size})=>(
                         <AntDesign name="home" color={color} size={size}/>
-                    )
-                }}
+                    ),
+                    tabBarStyle:{display:getTabBarVisibility(route)}
+                })}
                 />
                 <Tab.Screen name="Live" component={Live}
                 options={{
@@ -62,4 +74,4 @@ const Router=()=>{
         </NavigationContainer>
     )
 }
-export default Router;
+export default MainNavigator;

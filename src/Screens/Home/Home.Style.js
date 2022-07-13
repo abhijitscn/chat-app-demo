@@ -1,8 +1,83 @@
 import { StyleSheet } from "react-native";
-
+import { responsiveHeight,responsiveWidth } from '../../Utils/Dimension';
 const style=StyleSheet.create({
     main:{
         flex:1
+    },
+    sub:{
+        flex:1,
+    },
+    view1:{
+        flex:0.8,
+        flexDirection:'row',
+        alignItems:'center',
+        justifyContent:'space-between',
+        padding:responsiveWidth(4)
+    },
+    view1Sub1:{
+        width:responsiveWidth(55),
+        height:responsiveHeight(5.2),
+        backgroundColor:'#0002FC',
+        borderTopLeftRadius:responsiveHeight(2.6),
+        borderBottomLeftRadius:responsiveHeight(2.6),
+        borderTopRightRadius:responsiveHeight(2.6),
+        borderBottomRightRadius:responsiveHeight(2.6),
+        flexDirection:'row',
+        justifyContent:'space-between',
+        alignItems:'center'
+    },
+    view1Sub2:{
+        height:responsiveHeight(5),
+        width:responsiveHeight(5),
+        borderRadius:responsiveHeight(2.5),
+        borderWidth:2,
+        borderColor:'white',
+        justifyContent:'center',
+        alignItems:'center'
+    },
+    buttonText:{
+        color:'white'
+    },
+    view2:{
+        flex:1.5,
+        paddingTop:responsiveWidth(4),
+        paddingLeft:responsiveWidth(6),
+        paddingRight:responsiveWidth(20),
+        justifyContent:'flex-start',
+        alignItems:'flex-start',
+    },
+    view2Text1:{
+        color:'white',
+         fontFamily:'PingFang SC Regular',
+         fontWeight:'600',
+        fontSize:responsiveWidth(10),
+        marginBottom:responsiveHeight(2),
+    },
+    view2Text2:{
+        color:'white',
+        fontSize:responsiveWidth(3),
+        fontFamily:'PingFang SC Regular'
+    },
+    view3:{
+        flex:1.6,
+        flexWrap:'wrap',
+        flexDirection:'row',
+        justifyContent:'center',
+        alignContent:'center'
+    },
+    cardView:{
+        height:responsiveHeight(12),
+        width:responsiveWidth(40),
+        backgroundColor:'white',
+        margin:responsiveWidth(2),
+        borderRadius:responsiveWidth(3),
+        justifyContent:'space-evenly',
+        padding:responsiveWidth(2),
+        alignItems:'flex-start'
+    },
+    cardText:{
+        fontSize:responsiveWidth(3.5),
+        color:'black'
     }
 });
 export default style;
