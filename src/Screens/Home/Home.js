@@ -3,6 +3,7 @@ import { View,Text ,SafeAreaView,ImageBackground,StatusBar,Image,Pressable} from
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Entypo from 'react-native-vector-icons/Entypo'
 import style from './Home.Style';
+
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { responsiveHeight,responsiveWidth } from '../../Utils/Dimension';
 const Home=({ navigation })=>{
@@ -15,7 +16,7 @@ const Home=({ navigation })=>{
     return(
         <>
             <SafeAreaView style={style.main}>
-                <ImageBackground style={style.sub} source={require('../../Assets/pictures/Image.png')}>
+                <ImageBackground style={style.sub} source={require('../../Assets/pictures/Image1.png')}>
                     <StatusBar translucent backgroundColor='transparent'/>
                     <View style={style.view1}>
                         <Pressable style={style.view1Sub1} onPress={()=>{navigation.navigate('SwitchSpace')}}>
@@ -29,7 +30,7 @@ const Home=({ navigation })=>{
                     </View>
                     <View style={style.view2}>
                         <Text style={style.view2Text1}>
-                            Design Space
+                           Photography
                         </Text>
                         <Text style={style.view2Text2}>
                             204 LiveStreams.53 Course.7301Members Joined

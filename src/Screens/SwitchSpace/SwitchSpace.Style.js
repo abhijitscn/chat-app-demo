@@ -4,8 +4,8 @@ import { responsiveHeight,responsiveWidth } from "../../Utils/Dimension";
 const style=StyleSheet.create({
     main:{
         flex:1,
-        paddingLeft:responsiveWidth(7),
-        paddingRight:responsiveWidth(7)
+        paddingLeft:responsiveWidth(5),
+        paddingRight:responsiveWidth(5)
     },
     HeaderView:{
         flex:1,

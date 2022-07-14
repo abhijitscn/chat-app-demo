@@ -6,10 +6,12 @@ import Live from '../Screens/Live/Live';
 import Notice from '../Screens/Notice/Notice';
 import MyProfile from '../Screens/MyProfile/MyProfile';
 import AntDesign from 'react-native-vector-icons/AntDesign';
-import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons' 
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import MaterialIcons from 'react-native-vector-icons/MaterialIcons' 
 import Feather from 'react-native-vector-icons/Feather';
 import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import HomeStack from "./StacksScreen.js/HomeStacks/HomeStacks";
+import ChatScreen from "../Screens/ChatScreen/Chat.Screen";
 import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
 
 const Tab=createBottomTabNavigator();
@@ -54,10 +56,18 @@ const MainNavigator=()=>{
                     )
                 }}
                 />
-                 <Tab.Screen name="Notice" component={Notice}
+                 {/* <Tab.Screen name="Notice" component={Notice}
                 options={{
                     tabBarIcon:({color,size})=>(
                         <Feather name="bell" color={color} size={size}/>
+                    ),
+                    tabBarBadge:99
+                }}
+                /> */}
+                  <Tab.Screen name="Chat" component={ChatScreen}
+                options={{
+                    tabBarIcon:({color,size})=>(
+                        <MaterialIcons name="chat-bubble-outline" color={color} size={size}/>
                     ),
                     tabBarBadge:99
                 }}
