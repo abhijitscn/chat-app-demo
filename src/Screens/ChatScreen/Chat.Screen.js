@@ -8,7 +8,7 @@ import Entypo from 'react-native-vector-icons/Entypo'
 import Feather from 'react-native-vector-icons/Feather';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import style from "./Chat.Style";
-const ChatScreen=()=>{
+const ChatScreen=({navigation})=>{
     const [modal,setModal]=useState(false);
     const Data=[
         {id:1,name:'Mark French',message:'said may not chance,but do not', time:'16:04',pending:0},
@@ -51,12 +51,12 @@ const ChatScreen=()=>{
                                 <Text style={style.notText}>99</Text>
                             </View>
                         </View>
-                        <View style={style.HeaderCard} >
+                        <Pressable style={style.HeaderCard} onPress={()=>{navigation.navigate('MyGroup')}}>
                             <View style={[style.seachView,{backgroundColor:'#FFDB47',borderColor:'#FFDB47'}]}>
                                 <Feather name="users" color='black' size={responsiveWidth(4)}/>
                             </View>
                             <Text style={style.notText2}>My groups</Text>
-                        </View>
+                        </Pressable>
                     </View>
                 </View>
                 <View style={style.chatView}>

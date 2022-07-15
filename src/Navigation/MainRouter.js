@@ -13,12 +13,16 @@ import EvilIcons from 'react-native-vector-icons/EvilIcons';
 import HomeStack from "./StacksScreen.js/HomeStacks/HomeStacks";
 import ChatScreen from "../Screens/ChatScreen/Chat.Screen";
 import { getFocusedRouteNameFromRoute } from '@react-navigation/native';
+import ChatStack from "./StacksScreen.js/HomeStacks/ChatStacks";
 
 const Tab=createBottomTabNavigator();
 const MainNavigator=()=>{
     const getTabBarVisibility=(route)=>{
         const routeName = getFocusedRouteNameFromRoute(route)?? 'Feed';
         if(routeName==='SwitchSpace'){
+            return 'none'
+        }
+        else if(routeName==='MyGroup'){
             return 'none'
         }
         else{
@@ -64,13 +68,14 @@ const MainNavigator=()=>{
                     tabBarBadge:99
                 }}
                 /> */}
-                  <Tab.Screen name="Chat" component={ChatScreen}
-                options={{
+                  <Tab.Screen name="ChatStack" component={ChatStack}
+                options={({route})=>({
                     tabBarIcon:({color,size})=>(
                         <MaterialIcons name="chat-bubble-outline" color={color} size={size}/>
                     ),
+                    tabBarStyle:{display:getTabBarVisibility(route)},
                     tabBarBadge:99
-                }}
+                })}
                 />
                 <Tab.Screen name="Me" component={MyProfile}
                 options={{
