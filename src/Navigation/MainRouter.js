@@ -25,6 +25,12 @@ const MainNavigator=()=>{
         else if(routeName==='MyGroup'){
             return 'none'
         }
+        else if(routeName==='notification'){
+            return 'none'
+        }
+        else if(routeName==='contact'){
+            return 'none'
+        }
         else{
             return 'flex'
         }

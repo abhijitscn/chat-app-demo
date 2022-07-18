@@ -33,16 +33,16 @@ const ChatScreen=({navigation})=>{
                             <View style={style.seachView}>
                                 <Fontisto name="search" color='black' size={responsiveWidth(4)}/>
                             </View>
-                            <View style={style.seachView}>
+                            <Pressable style={style.seachView} onPress={()=>{navigation.navigate('contact')}}>
                                 <FontAwesome name="address-book-o" color='black' size={responsiveWidth(4)}/>
-                            </View>
+                            </Pressable>
                             <Pressable style={[style.seachView,{backgroundColor:'#0002FC'}]} onPress={()=>{setModal(!modal)}}>
                                 <Fontisto name="plus-a" color='white' size={responsiveWidth(4)}/>
                             </Pressable>
                         </View>
                     </View>
                     <View style={style.HeaderViewSub2}>
-                        <View style={style.HeaderCard}>
+                        <Pressable style={style.HeaderCard} onPress={()=>{navigation.navigate('notification')}}>
                             <View style={[style.seachView,{backgroundColor:'black'}]}>
                                 <MaterialCommunityIcons name="bell-outline" color='white' size={responsiveWidth(5)}/>
                             </View>
@@ -50,7 +50,7 @@ const ChatScreen=({navigation})=>{
                             <View style={style.notView}>
                                 <Text style={style.notText}>99</Text>
                             </View>
-                        </View>
+                        </Pressable>
                         <Pressable style={style.HeaderCard} onPress={()=>{navigation.navigate('MyGroup')}}>
                             <View style={[style.seachView,{backgroundColor:'#FFDB47',borderColor:'#FFDB47'}]}>
                                 <Feather name="users" color='black' size={responsiveWidth(4)}/>

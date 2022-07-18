@@ -9,15 +9,15 @@ import { responsiveHeight,responsiveWidth } from "../../Utils/Dimension";
 
 const MyGroupScreen=({navigation})=>{
     const Data=[
-        {id:1,title:'Group name 001',Pno:30,isSilent:true},
-        {id:2,title:'Group name 001',Pno:30,isSilent:false},
-        {id:3,title:'Group name 001',Pno:30,isSilent:true},
-        {id:4,title:'Group name 001',Pno:30,isSilent:false},
-        {id:5,title:'Group name 001',Pno:30,isSilent:false},
-        {id:6,title:'Group name 001',Pno:30,isSilent:false},
-        {id:7,title:'Group name 001',Pno:30,isSilent:false},
-        {id:8,title:'Group name 001',Pno:30,isSilent:true},
-        {id:10,title:'Group name 001',Pno:30,isSilent:false},
+        {id:1,title:'Herny Group 001',Pno:35,isSilent:true},
+        {id:2,title:'Paris Group 002',Pno:38,isSilent:false},
+        {id:3,title:'Sourav Group 003',Pno:41,isSilent:true},
+        {id:4,title:'Lora Group 004',Pno:63,isSilent:false},
+        {id:5,title:'Horis Group 005',Pno:81,isSilent:false},
+        {id:6,title:'Devid Group 006',Pno:52,isSilent:false},
+        {id:7,title:'Syam Group 007',Pno:52,isSilent:false},
+        {id:8,title:'Rohan Group 008',Pno:62,isSilent:true},
+        {id:10,title:'Abhi Group 009',Pno:75,isSilent:false},
     ]
     return(
         <>
