@@ -7,6 +7,7 @@ import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Entypo from 'react-native-vector-icons/Entypo'
 import Feather from 'react-native-vector-icons/Feather';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
+import PushNotification from "react-native-push-notification";
 import style from "./Chat.Style";
 const ChatScreen=({navigation})=>{
     const [modal,setModal]=useState(false);
@@ -22,6 +23,24 @@ const ChatScreen=({navigation})=>{
         {id:9,name:'Harle Watson',message:'You are so sweet.', time:'16:04',pending:5},
         {id:10,name:'kamala Chope',message:'Work happily in my home', time:'16:04',pending:0},
     ]
+    const handleNotification=(item)=>{
+        // PushNotification.clearAllNotifications();
+        PushNotification.localNotification({
+            channelId:'demo',
+            title:'Chat',
+            message:'you started chat with '+item.name,
+            picture: "https://myicons.co/myicons-social-icons"
+        });
+
+        // PushNotification.localNotificationSchedule({
+        //     channelId:'demo',
+        //     title:'scheduled notification',
+        //     message:'you started chat with '+item.name,
+        //     date: new Date(Date.now() + 40 * 1000),
+
+        // })
+
+    }
     return(
         <>
             <SafeAreaView style={style.main}>
@@ -66,7 +85,7 @@ const ChatScreen=({navigation})=>{
                     renderItem={({item})=>{
                         return(
                             <>
-                             <View style={style.chatCard}>
+                             <Pressable style={style.chatCard} onPress={()=>handleNotification(item)}>
                                 <View style={{flexDirection:'row'}}>
                                     <Image source={require('../../Assets/pictures/Avatar2.png')} style={{alignSelf:'center'}}/>
                                     <View style={style.chatCardsub}>
@@ -80,7 +99,7 @@ const ChatScreen=({navigation})=>{
                                     </View>
                                 </View>
                                 <Text style={style.timeText}>{item.time}</Text>
-                            </View> 
+                            </Pressable> 
                             </>
                         )
                     }}
