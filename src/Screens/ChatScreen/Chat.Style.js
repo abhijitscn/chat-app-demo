@@ -6,6 +6,7 @@ const style=StyleSheet.create({
     },
     Headerview:{
         flex:1,
+        backgroundColor:'#FFFFFF'
     },
     HeaderViewsub1:{
         flex:1,
@@ -66,12 +67,13 @@ const style=StyleSheet.create({
     },
     chatView:{
         flex:3,
-        paddingLeft:responsiveWidth(3),
-        paddingRight:responsiveWidth(3)
+        // paddingLeft:responsiveWidth(3),
+        // paddingRight:responsiveWidth(3)
     },
     chatCard:{
         height:responsiveHeight(7),
-        marginTop:responsiveHeight(2),
+        // marginTop:responsiveHeight(2),
+        width:'100%',
         flexDirection:'row',
         justifyContent:'space-between'
     },

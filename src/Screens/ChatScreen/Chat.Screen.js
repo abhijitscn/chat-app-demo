@@ -1,13 +1,15 @@
 import React,{useState} from "react";
-import { View,Text,StatusBar ,Image,FlatList,Modal,Pressable} from "react-native";
+import { View,Text,StatusBar ,Image,FlatList,Modal,Pressable,TouchableOpacity} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { responsiveWidth } from "../../Utils/Dimension";
 import Fontisto from 'react-native-vector-icons/Fontisto';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import Entypo from 'react-native-vector-icons/Entypo'
 import Feather from 'react-native-vector-icons/Feather';
+import AntDesign from 'react-native-vector-icons/AntDesign';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import PushNotification from "react-native-push-notification";
+import { ListItem ,Button} from "@rneui/themed";
 import style from "./Chat.Style";
 const ChatScreen=({navigation})=>{
     const [modal,setModal]=useState(false);
@@ -23,6 +25,7 @@ const ChatScreen=({navigation})=>{
         {id:9,name:'Harle Watson',message:'You are so sweet.', time:'16:04',pending:5},
         {id:10,name:'kamala Chope',message:'Work happily in my home', time:'16:04',pending:0},
     ]
+    const [data1,setData1]=useState(Data);
     const handleNotification=(item)=>{
         // PushNotification.clearAllNotifications();
         PushNotification.localNotification({
@@ -40,11 +43,19 @@ const ChatScreen=({navigation})=>{
 
         // })
 
-    }
+    };
+     function deletechat(id,fun){
+        let data=[...data1];
+        let filterdata=data.filter((res)=>{
+            return res.id!==id
+        });
+        setData1(filterdata)
+        fun();
+    };
     return(
         <>
             <SafeAreaView style={style.main}>
-            <StatusBar  barStyle={'dark-content'}/>
+            <StatusBar  barStyle={'dark-content'} backgroundColor={'#FFFFFF'}/>
                 <View style={style.Headerview}>
                     <View style={style.HeaderViewsub1}>
                         <Text style={style.HeaderText1}>Chats</Text>
@@ -80,11 +91,31 @@ const ChatScreen=({navigation})=>{
                 </View>
                 <View style={style.chatView}>
                     <FlatList
-                    data={Data}
+                    data={data1}
                     showsVerticalScrollIndicator={false}
                     renderItem={({item})=>{
                         return(
                             <>
+                            <ListItem.Swipeable
+                            style={{backgroundColor:'red'}}
+                             rightContent={(reset) => {
+                                return(
+                                    <>
+                                    <View style={{minHeight: '100%',flexDirection:'row'}}>
+                                        <TouchableOpacity style={{backgroundColor:'#8F92A1',flex:1,justifyContent:'center',alignItems:'center'}}>
+                                            <MaterialCommunityIcons name="email-newsletter" color={'white'} size={responsiveWidth(5)} />
+                                            <Text style={{fontSize:responsiveWidth(3),color:'white',fontWeight:'600',textAlign:'center'}}>Mark as unread</Text>
+                                        </TouchableOpacity>
+                                        
+                                        <TouchableOpacity style={{backgroundColor:'red',flex:1,justifyContent:'center',alignItems:'center'}} onPress={()=>{deletechat(item.id,reset)}}>
+                                            <AntDesign name="delete" color={'white'} size={responsiveWidth(5)} />
+                                            <Text style={{fontSize:responsiveWidth(3),color:'white',fontWeight:'600',textAlign:'center'}}>Delete</Text>
+                                        </TouchableOpacity>
+                                        
+                                    </View>
+                                </>
+                            )}}
+                            >
                              <Pressable style={style.chatCard} onPress={()=>handleNotification(item)}>
                                 <View style={{flexDirection:'row'}}>
                                     <Image source={require('../../Assets/pictures/Avatar2.png')} style={{alignSelf:'center'}}/>
@@ -100,6 +131,7 @@ const ChatScreen=({navigation})=>{
                                 </View>
                                 <Text style={style.timeText}>{item.time}</Text>
                             </Pressable> 
+                            </ListItem.Swipeable>
                             </>
                         )
                     }}

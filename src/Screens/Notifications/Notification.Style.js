@@ -41,11 +41,14 @@ const style=StyleSheet.create({
         fontSize:responsiveHeight(1.6),
         fontWeight:'600',
         color:'black',
+        textAlign:'left'
     },
     notText2:{
         fontSize:responsiveHeight(1.5),
         fontWeight:'400',
-        color:'#8F92A1'
+        color:'#8F92A1',
+        textAlign:'left',
+        width:responsiveWidth(50)
     },
     butView:{
         height:responsiveHeight(3.6),
@@ -59,6 +62,24 @@ const style=StyleSheet.create({
         color:'white',
         fontWeight:'600',
         fontSize:responsiveHeight(1.5)
+    },
+    footerView:{
+        flex:0.6,
+        // backgroundColor:'blue',
+        paddingLeft:responsiveWidth(3),
+        paddingRight:responsiveWidth(3),
+        flexDirection:'row',
+        justifyContent:'space-between',
+        alignItems:'center'
+    },
+    selectButView:{
+        height:responsiveHeight(4.6),
+        width:responsiveWidth(20),
+        borderRadius:responsiveHeight(2.3),
+        borderWidth:responsiveHeight(0.3),
+        borderColor:'#FF3742',
+        justifyContent:'center',
+        alignItems:'center'
     }
 });
 export default style;
