@@ -1,5 +1,5 @@
-import React from 'react';
-import { View,Text ,SafeAreaView,ImageBackground,StatusBar,Image,Pressable} from 'react-native';
+import React,{useEffect} from 'react';
+import { View,Text ,SafeAreaView,ImageBackground,StatusBar,Image,Pressable,BackHandler,Alert} from 'react-native';
 import AntDesign from 'react-native-vector-icons/AntDesign';
 import Entypo from 'react-native-vector-icons/Entypo'
 import style from './Home.Style';
@@ -13,11 +13,31 @@ const Home=({ navigation })=>{
         {id:3, name:'Share Space',color:'#FFDB47',name1:'forward'},
         {id:4, name:'Live Stream',color:'#02C697',name1:'instagram'},
     ]
+    useEffect(() => {
+        const backAction = () => {
+          Alert.alert("Hold on!", "Are you sure you want to go back?", [
+            {
+              text: "Cancel",
+              onPress: () => null,
+              style: "cancel"
+            },
+            { text: "YES", onPress: () => BackHandler.exitApp() }
+          ]);
+          return true;
+        };
+    
+        const backHandler = BackHandler.addEventListener(
+          "hardwareBackPress",
+          backAction
+        );
+    
+        return () => backHandler.remove();
+      }, []);
     return(
         <>
             <SafeAreaView style={style.main}>
                 <ImageBackground style={style.sub} source={require('../../Assets/pictures/Image1.png')}>
-                    <StatusBar translucent backgroundColor='transparent'/>
+                    <StatusBar translucent backgroundColor={'transparent'}/>
                     <View style={style.view1}>
                         <Pressable style={style.view1Sub1} onPress={()=>{navigation.navigate('SwitchSpace')}}>
                             <Image source={require('../../Assets/pictures/Avatar.png')} />

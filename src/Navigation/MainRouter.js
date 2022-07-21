@@ -36,7 +36,7 @@ const MainNavigator=()=>{
         }
     }
     return(
-        <NavigationContainer >
+        
             <Tab.Navigator screenOptions={{
                 headerShown:false,
                 tabBarActiveTintColor:'black',
@@ -92,7 +92,7 @@ const MainNavigator=()=>{
                 }}
                 />
             </Tab.Navigator>
-        </NavigationContainer>
+       
     )
 }
 export default MainNavigator;

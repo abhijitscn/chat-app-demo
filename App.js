@@ -9,6 +9,8 @@
 import React,{useEffect} from 'react';
 import MainNavigator from './src/Navigation/MainRouter';
 import PushNotification from 'react-native-push-notification';
+import MainStack from './src/Navigation/MainStack';
+import { NavigationContainer } from '@react-navigation/native';
 const App=()=> {
   useEffect(()=>{
     createChannel();
@@ -24,7 +26,10 @@ const App=()=> {
   }
   return (
    <>
+   {/* <NavigationContainer>
    <MainNavigator/>
+   </NavigationContainer> */}
+   <MainStack/>
    </>
   );
 };

@@ -52,10 +52,15 @@ const ChatScreen=({navigation})=>{
         setData1(filterdata)
         fun();
     };
+    const goToSettings=()=>{
+        setModal(false);
+        navigation.navigate('mSettings')
+    }
     return(
         <>
+           
             <SafeAreaView style={style.main}>
-            <StatusBar  barStyle={'dark-content'} backgroundColor={'#FFFFFF'}/>
+            <StatusBar  barStyle={'dark-content'} backgroundColor='transparent'/>
                 <View style={style.Headerview}>
                     <View style={style.HeaderViewsub1}>
                         <Text style={style.HeaderText1}>Chats</Text>
@@ -155,10 +160,10 @@ const ChatScreen=({navigation})=>{
                                 <Feather name="user-plus" size={responsiveWidth(4)} style={{marginRight:responsiveWidth(3)}} color='black'/>
                                 <Text>Add Contact</Text>
                             </View>
-                            <View style={{flex:1,alignItems:'center',flexDirection:'row'}}>
+                            <TouchableOpacity style={{flex:1,alignItems:'center',flexDirection:'row'}} onPress={goToSettings}>
                                 <Feather name="settings" size={responsiveWidth(4)}style={{marginRight:responsiveWidth(3)}} color='black'/>
                                 <Text>Settings</Text>
-                            </View>
+                            </TouchableOpacity>
                         </View>
                     </View>
             </Modal>

@@ -2,11 +2,11 @@ import { StyleSheet } from "react-native";
 import { responsiveHeight,responsiveWidth } from "../../Utils/Dimension";
 const style=StyleSheet.create({
     main:{
-        flex:1
+        flex:1,
+        backgroundColor:'#FFFFFF'
     },
     Headerview:{
         flex:1,
-        backgroundColor:'#FFFFFF'
     },
     HeaderViewsub1:{
         flex:1,
